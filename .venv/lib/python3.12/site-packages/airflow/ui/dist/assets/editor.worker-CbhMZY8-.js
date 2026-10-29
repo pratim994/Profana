@@ -1,1 +1,0 @@
-var e=``+new URL(`editor.worker-BboMRUer.js`,import.meta.url).href;export{e as default};

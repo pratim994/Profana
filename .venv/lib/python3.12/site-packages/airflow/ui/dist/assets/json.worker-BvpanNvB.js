@@ -1,1 +1,0 @@
-var e=``+new URL(`json.worker-B2CIyALT.js`,import.meta.url).href;export{e as default};
