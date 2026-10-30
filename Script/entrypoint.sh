@@ -3,11 +3,12 @@
 
 set -e
 
-if [-e "/opt/airflow/requirements.txt"]; then
+if [ -e  "/opt/airflow/requirements.txt" ]; then
 	$(command -v pip) install --user -r requirements.txt
+fi
 
-if [! -f "/opt/airflow/airflow.db"]; then
-	airflow db init && \
+if [ ! -f "/opt/airflow/airflow.db" ]; then
+	airflow db migrate && \
 	airflow users create \
 	  --username admin \
 	  --firstname admin \
@@ -18,6 +19,6 @@ if [! -f "/opt/airflow/airflow.db"]; then
 
 fi 
 
-$(command -v airflow ) db upgrade
+$(command -v airflow ) db migrate
 
 exec airflow webserver 
